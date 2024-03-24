@@ -1,0 +1,86 @@
+<!-- strings.html - Created by [Your Name] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgb(6, 255, 213);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(4, 134, 255, 0.1);
+        }
+
+        h1 {
+            color: rgb(23, 80, 12);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Palindrome Checker</h1>
+        <p>"You've used time travel improperly! We must rewrite history in order to save the universe!":</p>
+        <input type="text" id="inputField">
+        <button onclick="checkPalindrome()">Check</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Function to check if a string is a palindrome
+        function isPalindrome(str) {
+            // Convert the string to lowercase and remove non-alphanumeric characters
+            str = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+            // Compare the string with its reverse
+            return str === str.split('').reverse().join('');
+        }
+
+        // Function to handle palindrome checking
+        function checkPalindrome() {
+            // Get the input value
+            var input = document.getElementById('inputField').value;
+            // Check if the input is a palindrome
+            var palindrome = isPalindrome(input);
+            // Get the result element
+            var resultElement = document.getElementById('result');
+            // Display the result to the user
+            if (palindrome) {
+                resultElement.textContent = "'" + input + "' is a palindrome!";
+            } else {
+                resultElement.textContent = "'" + input + "' is not a palindrome.";
+            }
+        }
+    </script>
+</body>
+</html>
