@@ -1,0 +1,37 @@
+// Function to check if a string is a palindrome
+function isPalindrome(str) {
+    // Convert the string to lowercase and remove non-alphanumeric characters
+    str = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    // Compare the string with its reverse
+    return str === str.split('').reverse().join('');
+}
+
+// Main function to handle palindrome checking
+function checkPalindrome() {
+    // Get the input value
+    var input = prompt("Enter a word or phrase to check if it's a palindrome:");
+    // Check if the input is null (user clicked cancel)
+    if (input === null) {
+        alert("You have chosen to exit. Goodbye!");
+        return; // Exit the function
+    }
+    // Check if the input is a palindrome
+    var palindrome = isPalindrome(input);
+    // Display the result to the user
+    if (palindrome) {
+        alert("'" + input + "' is a palindrome!");
+    } else {
+        alert("'" + input + "' is not a palindrome.");
+    }
+    // Ask the user if they want to check another word
+    var continueChecking = confirm("Do you want to check another word?");
+    // If user wants to continue, recursively call the function again
+    if (continueChecking) {
+        checkPalindrome();
+    } else {
+        alert("You have chosen to exit. Goodbye!");
+    }
+}
+
+// Call the function to start palindrome checking
+checkPalindrome();
